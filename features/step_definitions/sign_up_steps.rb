@@ -8,7 +8,7 @@ When(/^I visit sign up page$/) do
 	visit signup_path
 end
 
-When(/^I fill in the correct information$/) do
+And(/^I fill in the correct information$/) do
 	fill_in 'Email', with: 'my@email.com'
 	fill_in 'Username', with: 'myname'
 	fill_in 'Password', with: 'qwerty'

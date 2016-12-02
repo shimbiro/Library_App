@@ -1,18 +1,36 @@
 Given(/^I am existing user$/) do
 	visit login_path
-	fill_in 'Email', with: 'my@email.com'
-	fill_in 'Password', with: 'qwerty'
-	click_button 'Log in'
+	
  end
 
 When(/^I visit log in page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+	visit login_path
+    fill_in 'Email', with: 'my@email.com'
+	fill_in 'Password', with: 'qwerty'
+	click_button 'Log in'
 end
 
-When(/^I fill in correct information$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+And(/^I fill in correct information$/) do
+  visit login_url
 
+    fill_in 'Email', with: 'my@email.com'
+	fill_in 'Password', with: 'qwerty'
+	click_button 'Log in'
+end
 Then(/^I can log in$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+ expect(page).to have_content('Logged in')
+
+end
+
+
+Given(/^am a logged in users$/) do
+	visit login_url
+    fill_in 'Email', with: 'my@email.com'
+	fill_in 'Password', with: 'qwerty'
+	click_button 'Log in'
+  
+end
+
+Then(/^I can log out$/) do
+   visit root_url
 end

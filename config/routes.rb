@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'signup' => 'users#new'
-  get 'users' => 'users#show'
   post 'users' => 'users#create'
+  get 'users' => 'users#show'
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
